@@ -32,72 +32,7 @@
             color: var(--text-main);
             overflow-x: hidden;
             min-height: 100vh;
-        }
-
-        /* 1. Custom Lunar Loading Screen */
-        #loading-gate {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #040509;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.6s;
-        }
-
-        .moon-spinner {
-            position: relative;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #e1f5fe, #00b0ff, #000);
-            box-shadow: 0 0 30px var(--accent-glow), inset -5px -5px 15px rgba(0,0,0,0.8);
-            margin-bottom: 20px;
-            animation: pulseMoon 2.5s ease-in-out infinite;
-        }
-
-        .orbit-ring {
-            position: absolute;
-            width: 110px;
-            height: 110px;
-            border: 1px dashed rgba(0, 240, 255, 0.3);
-            border-radius: 50%;
-            animation: spinOrbit 5s linear infinite;
-        }
-
-        @keyframes pulseMoon {
-            0%, 100% { transform: scale(0.95); filter: drop-shadow(0 0 10px var(--accent-glow)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(0, 240, 255, 0.4)); }
-        }
-
-        @keyframes spinOrbit {
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: var(--accent-lunar);
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
-        }
-
-        /* Ambient Space Background Canvas */
-        .space-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
             background: radial-gradient(circle at 50% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 60%);
-            pointer-events: none;
         }
 
         /* Sticky Navigation Bar */
@@ -308,6 +243,7 @@
             max-width: 100%;
             border-top: 1px solid var(--border-color);
             border-bottom: 1px solid var(--border-color);
+            padding: 100px 0;
         }
 
         .section-header {
@@ -315,6 +251,7 @@
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 24px;
         }
 
         .section-header span {
@@ -333,6 +270,7 @@
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 24px;
         }
 
         .showcase-card {
@@ -341,3 +279,73 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .thumb-box {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+        }
+
+        .thumb-box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-details { padding: 24px; }
+        
+        .video-title-label {
+            font-size: 1.05rem;
+            font-weight: 600;
+            line-height: 1.4;
+            height: 2.8em;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 16px;
+        }
+
+        .metadata-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer Container */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 960px) {
+            .hero-layout { grid-template-columns: 1fr; text-align: center; }
+            .hero-desc { margin: 0 auto 40px; }
+            .cta-buttons { justify-content: center; }
+            .stats-row { margin: 0 auto; }
+            .nav-menu { display: none; }
+            .hero-layout h1 { font-size: 3.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">

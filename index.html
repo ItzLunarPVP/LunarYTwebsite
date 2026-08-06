@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ItzLunar | Portfolio</title>
     <style>
+        /* ==========================================================================
+           ORIGINAL LAYOUT STYLING (RESTORED & RIGIDLY VERIFIED)
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -17,14 +20,20 @@
             color: #ffffff;
             min-height: 100vh;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Navigation Header */
+        /* Navbar Layer */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 25px 8%;
+            position: sticky;
+            top: 0;
+            background-color: rgba(3, 8, 15, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
         }
 
         .logo {
@@ -44,6 +53,7 @@
             font-size: 15px;
             font-weight: 500;
             transition: color 0.3s;
+            cursor: pointer;
         }
 
         .nav-links a.active, .nav-links a:hover {
@@ -51,13 +61,14 @@
         }
 
         /* Hero Section Container */
-        .hero-container {
+        main.hero-container {
             display: flex;
             max-width: 1300px;
             margin: 0 auto;
             padding: 40px 8% 80px 8%;
             align-items: center;
             justify-content: space-between;
+            min-height: calc(100vh - 90px);
         }
 
         .hero-content {
@@ -114,7 +125,7 @@
             max-width: 480px;
         }
 
-        /* Action Buttons */
+        /* Action Buttons with Animations */
         .cta-buttons {
             display: flex;
             gap: 15px;
@@ -127,7 +138,8 @@
             font-weight: 700;
             padding: 14px 28px;
             border-radius: 30px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: inline-block;
         }
 
         .btn-primary {
@@ -135,10 +147,21 @@
             color: #000000;
         }
 
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 240, 255, 0.4);
+        }
+
         .btn-secondary {
             background-color: #0f172a;
             color: #ffffff;
             border: 1px solid #1e293b;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1e293b;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         /* Statistics Row */
@@ -169,7 +192,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Right Side: Glowing 3D Orb Art */
+        /* Glowing 3D Orb */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -187,9 +210,162 @@
                 inset -10px -10px 40px rgba(0,0,0,0.8);
         }
 
-        /* Responsive Scaling for Tablets/Mobile */
+        /* ==========================================================================
+           VIDEOS GALLERY GRID LAYOUT STYLING
+           ========================================================================== */
+        .video-section {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 80px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .section-heading-container {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .video-card {
+            background-color: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 240, 255, 0.2);
+            box-shadow: 0 12px 24px rgba(0, 240, 255, 0.05);
+        }
+
+        .video-thumbnail-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            background-color: #0f172a;
+        }
+
+        .video-thumbnail-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-info-box {
+            padding: 20px;
+        }
+
+        .video-card-title {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        /* ==========================================================================
+           CONTACT MODAL POPUP STYLING
+           ========================================================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .modal-overlay.modal-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: #0a0f1d;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: #70757d;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #ffffff;
+        }
+
+        .modal-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .modal-content p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .discord-btn {
+            display: inline-block;
+            background-color: #5865F2;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .discord-btn:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Configuration */
         @media (max-width: 968px) {
-            .hero-container {
+            main.hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 50px;
@@ -197,68 +373,3 @@
             .hero-content {
                 display: flex;
                 flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="logo">Itz<span>Lunar</span></div>
-        <nav class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">Videos</a>
-            <a href="#">About</a>
-        </nav>
-    </header>
-
-    <!-- Hero Section Container -->
-    <main class="hero-container">
-        
-        <!-- Left Side: Content Box -->
-        <section class="hero-content">
-            <div class="badge">
-                <span class="dot"></span> OFFICIAL PORTFOLIO
-            </div>
-            
-            <h1>Content Creator & <br><span class="highlight">Gamer</span></h1>
-            
-            <p class="sub-tags">GAMING &bull; MONTAGES &bull; STREAMS</p>
-            
-            <p class="description">
-                Welcome to the official portal. Check out the latest video uploads, stream highlights, and channel stats below.
-            </p>
-            
-            <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">Watch Videos</a>
-                <a href="#" class="btn btn-secondary">YouTube Channel</a>
-            </div>
-            
-            <!-- Statistics Row -->
-            <div class="stats-row">
-                <div class="stat-card">
-                    <h2>10K+</h2>
-                    <p>SUBSCRIBERS</p>
-                </div>
-                <div class="stat-card">
-                    <h2>500+</h2>
-                    <p>VIDEOS</p>
-                </div>
-                <div class="stat-card">
-                    <h2>1M+</h2>
-                    <p>VIEWS</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Right Side: Glowing 3D Orb Art -->
-        <section class="hero-visual">
-            <div class="glowing-sphere"></div>
-        </section>
-
-    </main>
-
-</body>
-</html>

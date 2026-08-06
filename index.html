@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           ORIGINAL STYLING (RESTORED & DOUBLE-CHECKED FOR ACCURACY)
+           ORIGINAL LAYOUT STYLING (RESTORED & IMMUTABLE)
            ========================================================================== */
         * {
             margin: 0;
@@ -60,7 +60,7 @@
             color: #ffffff;
         }
 
-        /* Hero Section Container (THE RETAINED STRUCTURAL PARENT NODE) */
+        /* Hero Section Container (THE STRUCTURAL ELEMENT TAG RESTORED) */
         main.hero-container {
             display: flex;
             max-width: 1300px;
@@ -147,7 +147,6 @@
             color: #000000;
         }
 
-        /* Hover Scaling Micro-animations Added Safely */
         .btn-primary:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0, 240, 255, 0.4);
@@ -165,7 +164,7 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
-        /* Channel Performance Statistics Card Grid */
+        /* Statistics Row */
         .stats-row {
             display: flex;
             gap: 20px;
@@ -193,7 +192,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Glowing 3D Orb Asset Layout */
+        /* Glowing 3D Orb */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -212,7 +211,7 @@
         }
 
         /* ==========================================================================
-           SAFE VIDEOS COMPONENT (Appended Naturally Beneath Hero Section Line)
+           VIDEOS GALLERY GRID LAYOUT STYLING
            ========================================================================== */
         .video-section {
             max-width: 1300px;
@@ -284,7 +283,7 @@
         }
 
         /* ==========================================================================
-           CONTACT OVERLAY INTERFACE POPUP STYLING
+           CONTACT MODAL POPUP STYLING
            ========================================================================== */
         .modal-overlay {
             position: fixed;
@@ -364,6 +363,12 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive Mobile Breakpoint Configuration */
+        /* Responsive Configuration */
         @media (max-width: 968px) {
             main.hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 50px;
+            }
+            .hero-content {
+                display: flex;

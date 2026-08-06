@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           MAIN STRUCTURE & LAYOUT ACCENTS
+           ORIGINAL LAYOUT STYLING (RESTORED & VERIFIED)
            ========================================================================== */
         * {
             margin: 0;
@@ -23,7 +23,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Navbar Layout Configuration */
+        /* Navbar Layer */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -60,7 +60,7 @@
             color: #ffffff;
         }
 
-        /* Hero Section Main Wrapper */
+        /* Hero Section Container */
         .hero-container {
             display: flex;
             max-width: 1300px;
@@ -125,7 +125,7 @@
             max-width: 480px;
         }
 
-        /* Call To Action Buttons & Pulse Animations */
+        /* Action Buttons with Animations */
         .cta-buttons {
             display: flex;
             gap: 15px;
@@ -139,24 +139,18 @@
             padding: 14px 28px;
             border-radius: 30px;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            cursor: pointer;
+            display: inline-block;
         }
 
         .btn-primary {
             background-color: #00f0ff;
             color: #000000;
-            position: relative;
-            z-index: 1;
         }
 
-        /* Pulsing Glow Effect Animation for Primary Action Button */
+        /* Hover animations added safely */
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6), 0 0 40px rgba(0, 240, 255, 0.3);
-        }
-
-        .btn-primary:active {
-            transform: translateY(-1px);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
         }
 
         .btn-secondary {
@@ -168,14 +162,9 @@
         .btn-secondary:hover {
             background-color: #1e293b;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        .btn-secondary:active {
-            transform: translateY(-1px);
-        }
-
-        /* Channel Performance Stats Row */
+        /* Statistics Row */
         .stats-row {
             display: flex;
             gap: 20px;
@@ -203,7 +192,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Glowing 3D Orb Visual Asset */
+        /* Glowing 3D Orb */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -222,7 +211,7 @@
         }
 
         /* ==========================================================================
-           DYNAMIC VIDEO GALLERY PANEL SECTION
+           VIDEOS GALLERY GRID LAYOUT STYLING
            ========================================================================== */
         .video-section {
             max-width: 1300px;
@@ -240,11 +229,6 @@
             font-size: 40px;
             font-weight: 800;
             margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            color: #64748b;
-            font-size: 16px;
         }
 
         .video-grid {
@@ -268,13 +252,12 @@
         .video-card:hover {
             transform: translateY(-8px);
             border-color: rgba(0, 240, 255, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.05);
         }
 
         .video-thumbnail-wrapper {
             position: relative;
             width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio aspect constraint */
+            padding-top: 56.25%;
             background-color: #0f172a;
         }
 
@@ -287,35 +270,6 @@
             object-fit: cover;
         }
 
-        .play-overlay-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 240, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
-        }
-
-        .video-card:hover .play-overlay-icon {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .play-overlay-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: #000000;
-            margin-left: 2px;
-        }
-
         .video-info-box {
             padding: 20px;
         }
@@ -324,31 +278,11 @@
             font-size: 16px;
             font-weight: 700;
             line-height: 1.4;
-            margin-bottom: 8px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
             color: #ffffff;
         }
 
-        .video-date-stamp {
-            font-size: 12px;
-            color: #64748b;
-            font-weight: 600;
-        }
-
-        /* Loading & Error Status Info Text */
-        .status-message {
-            text-align: center;
-            padding: 40px;
-            color: #64748b;
-            font-size: 16px;
-            grid-column: 1 / -1;
-        }
-
         /* ==========================================================================
-           CONTACT POPUP INTERFACE STYLING
+           CONTACT MODAL POPUP STYLING
            ========================================================================== */
         .modal-overlay {
             position: fixed;
@@ -368,3 +302,76 @@
 
         .modal-overlay.modal-open {
             opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background-color: #0a0f1d;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            color: #70757d;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #ffffff;
+        }
+
+        .modal-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .modal-content p {
+            color: #94a3b8;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .discord-btn {
+            display: inline-block;
+            background-color: #5865F2;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .discord-btn:hover {
+            background-color: #4752C4;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Configuration */
+        @media (max-width: 968px) {
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 50px;
+            }
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .cta-buttons, .stats-row {

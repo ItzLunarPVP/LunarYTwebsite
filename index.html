@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           CSS STYLING (SINGLE-FILE IMPLEMENTATION)
+           COMPREHENSIVE INTEGRATED PORTFOLIO STYLING
            ========================================================================== */
         * {
             margin: 0;
@@ -22,7 +22,7 @@
             overflow-x: hidden;
         }
 
-        /* Navbar Layout */
+        /* Navbar Layout configuration */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -55,21 +55,15 @@
             color: #ffffff;
         }
 
-        /* Main Wrapper & Layout Layouts */
+        /* Main Container Framework for Active Content */
         .main-wrapper {
             width: 100%;
-            min-height: calc(100vh - 100px);
-            position: relative;
-        }
-
-        .hero-container {
             max-width: 1300px;
             margin: 0 auto;
             padding: 40px 8% 80px 8%;
-            width: 100%;
         }
 
-        /* Grid Alignment structures for Home layout */
+        /* Home Content Section Grid */
         .home-grid {
             display: flex;
             align-items: center;
@@ -84,7 +78,7 @@
             text-align: left;
         }
 
-        /* Typography Elements & Badges */
+        /* Badges & Text Accents */
         .badge {
             display: inline-flex;
             align-items: center;
@@ -133,7 +127,7 @@
             max-width: 480px;
         }
 
-        /* Action Buttons */
+        /* Action Buttons styling */
         .cta-buttons {
             display: flex;
             gap: 15px;
@@ -169,7 +163,7 @@
             background-color: #1e293b;
         }
 
-        /* Statistical Panel Structure */
+        /* Stats Panels */
         .stats-row {
             display: flex;
             gap: 20px;
@@ -197,7 +191,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Decorative Artwork Canvas */
+        /* Luminous 3D Sphere Canvas */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -215,15 +209,21 @@
                 inset -10px -10px 40px rgba(0,0,0,0.8);
         }
 
-        /* Section Visibility Controllers */
-        .section-hidden {
+        /* Dynamic Section Visibility Controllers */
+        .portfolio-section {
             display: none !important;
+            width: 100%;
         }
 
         .section-active {
             display: block !important;
         }
 
+        .section-flex-active {
+            display: flex !important;
+        }
+
+        /* Inner Page Component Content rules */
         .page-content {
             width: 100%;
             text-align: center;
@@ -235,7 +235,7 @@
             margin-bottom: 15px;
         }
 
-        /* Videos Panel Showcase Gallery Grid */
+        /* Showcase Videos Gallery Layout */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -270,7 +270,7 @@
             margin-bottom: 12px;
         }
 
-        /* Modal Contact Framework overlays */
+        /* Pop-up Modals Framework */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -331,7 +331,7 @@
             margin-bottom: 30px;
         }
 
-        /* Discord Invitation Interactive elements */
+        /* Neon Custom Contact Button Layout */
         .discord-btn {
             display: inline-block;
             background-color: #5865F2;
@@ -351,7 +351,7 @@
             box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
         }
 
-        /* Responsive Breakpoints */
+        /* Responsive Mobile Breakpoint Configuration */
         @media (max-width: 968px) {
             .home-grid {
                 flex-direction: column-reverse;

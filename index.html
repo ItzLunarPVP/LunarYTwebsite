@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           CSS STYLING (MERGED INTO ONE FILE)
+           CSS STYLING (SINGLE-FILE IMPLEMENTATION)
            ========================================================================== */
         * {
             margin: 0;
@@ -28,6 +28,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 25px 8%;
+            width: 100%;
         }
 
         .logo {
@@ -54,14 +55,26 @@
             color: #ffffff;
         }
 
-        /* Hero Content Section Layout */
+        /* Main Wrapper & Layout Layouts */
+        .main-wrapper {
+            width: 100%;
+            min-height: calc(100vh - 100px);
+            position: relative;
+        }
+
         .hero-container {
-            display: flex;
             max-width: 1300px;
             margin: 0 auto;
             padding: 40px 8% 80px 8%;
+            width: 100%;
+        }
+
+        /* Grid Alignment structures for Home layout */
+        .home-grid {
+            display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 40px;
             width: 100%;
         }
 
@@ -120,7 +133,7 @@
             max-width: 480px;
         }
 
-        /* Call To Action Interactive Buttons */
+        /* Action Buttons */
         .cta-buttons {
             display: flex;
             gap: 15px;
@@ -156,7 +169,7 @@
             background-color: #1e293b;
         }
 
-        /* Channels Analytical Counter Blocks */
+        /* Statistical Panel Structure */
         .stats-row {
             display: flex;
             gap: 20px;
@@ -184,7 +197,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Right Side Layout: Luminous Canvas Element */
+        /* Decorative Artwork Canvas */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -202,13 +215,13 @@
                 inset -10px -10px 40px rgba(0,0,0,0.8);
         }
 
-        /* Content Section Switch Utilities */
+        /* Section Visibility Controllers */
         .section-hidden {
             display: none !important;
         }
 
         .section-active {
-            display: flex !important;
+            display: block !important;
         }
 
         .page-content {
@@ -222,7 +235,7 @@
             margin-bottom: 15px;
         }
 
-        /* Videos Display Grid Layout */
+        /* Videos Panel Showcase Gallery Grid */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -257,7 +270,7 @@
             margin-bottom: 12px;
         }
 
-        /* Modal Interlayer Layout Configuration */
+        /* Modal Contact Framework overlays */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -318,7 +331,7 @@
             margin-bottom: 30px;
         }
 
-        /* Neon Discord Button Framework */
+        /* Discord Invitation Interactive elements */
         .discord-btn {
             display: inline-block;
             background-color: #5865F2;
@@ -338,9 +351,9 @@
             box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
         }
 
-        /* Mobile View Responsive Breakpoints */
+        /* Responsive Breakpoints */
         @media (max-width: 968px) {
-            .hero-container {
+            .home-grid {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 50px;
@@ -363,16 +376,6 @@
     <header class="navbar">
         <div class="logo">Itz<span>Lunar</span></div>
         <nav class="nav-links">
-            <a href="#home" class="nav-item active" onclick="switchSection('home')">Home</a>
-            <a href="#videos" class="nav-item" onclick="switchSection('videos')">Videos</a>
-            <a href="#about" class="nav-item" onclick="switchSection('about')">About</a>
-            <a href="#" class="nav-item" onclick="openContactModal(event)">Contact</a>
-        </nav>
-    </header>
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-        
-        <!-- HOME SECTION -->
-        <main id="home" class="hero-container section-active">
-            <!-- Left Side: Content Box -->
+            <a href="#home" class="nav-item active" onclick="switchSection('home', event)">Home</a>
+            <a href="#videos" class="nav-item" onclick="switchSection('videos', event)">Videos</a>
+            <a href="#about" class="nav-item" onclick="switchSection('about', event)">About</a>

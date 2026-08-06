@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           ORIGINAL BASE LAYOUT STYLING (RESTORED & VERIFIED)
+           ORIGINAL BASE LAYOUT STYLING (RESTORED & IMMUTABLE)
            ========================================================================== */
         * {
             margin: 0;
@@ -60,8 +60,8 @@
             color: #ffffff;
         }
 
-        /* Hero Section Container */
-        .hero-container {
+        /* Hero Section Container (THE ESSENTIAL MAIN ELEMENT TAG RESTORED) */
+        main.hero-container {
             display: flex;
             max-width: 1300px;
             margin: 0 auto;
@@ -125,7 +125,7 @@
             max-width: 480px;
         }
 
-        /* Action Buttons with Safe Hover Animations */
+        /* Action Buttons with Animations */
         .cta-buttons {
             display: flex;
             gap: 15px;
@@ -138,7 +138,7 @@
             font-weight: 700;
             padding: 14px 28px;
             border-radius: 30px;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: inline-block;
         }
 
@@ -365,12 +365,10 @@
 
         /* Responsive Configuration */
         @media (max-width: 968px) {
-            .hero-container {
+            main.hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 50px;
             }
             .hero-content {
                 display: flex;
-                flex-direction: column;
-                align-items: center;

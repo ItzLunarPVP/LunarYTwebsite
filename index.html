@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           ORIGINAL BASE LAYOUT STYLING (RESTORED & RIGIDLY VERIFIED)
+           ORIGINAL STYLING (RESTORED & DOUBLE-CHECKED FOR ACCURACY)
            ========================================================================== */
         * {
             margin: 0;
@@ -60,7 +60,7 @@
             color: #ffffff;
         }
 
-        /* Hero Section Container (THE CRITICAL ELEMENT WRAPPER FULLY RESTORED) */
+        /* Hero Section Container (THE RETAINED STRUCTURAL PARENT NODE) */
         main.hero-container {
             display: flex;
             max-width: 1300px;
@@ -147,6 +147,7 @@
             color: #000000;
         }
 
+        /* Hover Scaling Micro-animations Added Safely */
         .btn-primary:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0, 240, 255, 0.4);
@@ -164,7 +165,7 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
-        /* Statistics Row */
+        /* Channel Performance Statistics Card Grid */
         .stats-row {
             display: flex;
             gap: 20px;
@@ -192,7 +193,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Glowing 3D Orb */
+        /* Glowing 3D Orb Asset Layout */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -211,7 +212,7 @@
         }
 
         /* ==========================================================================
-           ADDITION #1: VIDEO SECTION STYLING (Appended Down Below Naturally)
+           SAFE VIDEOS COMPONENT (Appended Naturally Beneath Hero Section Line)
            ========================================================================== */
         .video-section {
             max-width: 1300px;
@@ -238,7 +239,7 @@
             width: 100%;
         }
 
-        .video-card {
+        .video-showcase-card {
             background-color: rgba(15, 23, 42, 0.4);
             border: 1px solid rgba(255, 255, 255, 0.03);
             border-radius: 16px;
@@ -249,20 +250,20 @@
             display: block;
         }
 
-        .video-card:hover {
+        .video-showcase-card:hover {
             transform: translateY(-8px);
             border-color: rgba(0, 240, 255, 0.2);
             box-shadow: 0 12px 24px rgba(0, 240, 255, 0.05);
         }
 
-        .video-thumbnail-wrapper {
+        .thumbnail-box {
             position: relative;
             width: 100%;
             padding-top: 56.25%;
             background-color: #0f172a;
         }
 
-        .video-thumbnail-wrapper img {
+        .thumbnail-box img {
             position: absolute;
             top: 0;
             left: 0;
@@ -271,11 +272,11 @@
             object-fit: cover;
         }
 
-        .video-info-box {
+        .video-details {
             padding: 20px;
         }
 
-        .video-card-title {
+        .video-headline {
             font-size: 16px;
             font-weight: 700;
             line-height: 1.4;
@@ -283,7 +284,7 @@
         }
 
         /* ==========================================================================
-           ADDITION #2: POP-UP MODAL OVERLAY STYLING
+           CONTACT OVERLAY INTERFACE POPUP STYLING
            ========================================================================== */
         .modal-overlay {
             position: fixed;
@@ -363,10 +364,6 @@
             transform: translateY(-2px);
         }
 
-        /* Responsive Configuration */
+        /* Responsive Mobile Breakpoint Configuration */
         @media (max-width: 968px) {
             main.hero-container {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 50px;
-            }

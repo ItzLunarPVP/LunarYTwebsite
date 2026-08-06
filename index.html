@@ -6,7 +6,7 @@
     <title>ItzLunar | Portfolio</title>
     <style>
         /* ==========================================================================
-           CORE WEBSITE STYLING & ACCENTS
+           ORIGINAL STYLING (RESTORED & VERIFIED)
            ========================================================================== */
         * {
             margin: 0;
@@ -22,13 +22,12 @@
             overflow-x: hidden;
         }
 
-        /* Navbar Layout Configuration */
+        /* Navbar Layout */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 25px 8%;
-            width: 100%;
         }
 
         .logo {
@@ -55,44 +54,22 @@
             color: #ffffff;
         }
 
-        /* Main Structural Containers */
-        .main-wrapper {
-            width: 100%;
+        /* Hero Section Container */
+        .hero-container {
+            display: flex;
             max-width: 1300px;
             margin: 0 auto;
             padding: 40px 8% 80px 8%;
-        }
-
-        /* Dynamic Section Switch Visibility Utilities */
-        .portfolio-section {
-            display: none;
-            width: 100%;
-        }
-
-        .section-active {
-            display: block !important;
-        }
-
-        .section-flex-active {
-            display: flex !important;
-        }
-
-        /* Home View Grid Layout */
-        .home-grid {
-            display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
-            width: 100%;
         }
 
         .hero-content {
             flex: 1;
             max-width: 600px;
-            text-align: left;
         }
 
-        /* UI Badges & Highlights */
+        /* Typography & Badges */
         .badge {
             display: inline-flex;
             align-items: center;
@@ -141,7 +118,7 @@
             max-width: 480px;
         }
 
-        /* Interactive Action Buttons */
+        /* Action Buttons */
         .cta-buttons {
             display: flex;
             gap: 15px;
@@ -155,7 +132,6 @@
             padding: 14px 28px;
             border-radius: 30px;
             transition: all 0.3s ease;
-            display: inline-block;
         }
 
         .btn-primary {
@@ -177,7 +153,7 @@
             background-color: #1e293b;
         }
 
-        /* Channels Counters Panels */
+        /* Statistics Row */
         .stats-row {
             display: flex;
             gap: 20px;
@@ -205,7 +181,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Decorative Glow Sphere Graphics Canvas */
+        /* Glowing 3D Orb */
         .hero-visual {
             flex: 1;
             display: flex;
@@ -223,54 +199,9 @@
                 inset -10px -10px 40px rgba(0,0,0,0.8);
         }
 
-        /* Sub-Pages Layout Styling */
-        .page-content {
-            width: 100%;
-            text-align: center;
-            padding-top: 20px;
-        }
-
-        .section-title {
-            font-size: 44px;
-            margin-bottom: 15px;
-        }
-
-        /* Videos Grid Panel Gallery Layout */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-            width: 100%;
-        }
-
-        .video-card {
-            background-color: rgba(15, 23, 42, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 15px;
-            text-align: left;
-            transition: transform 0.2s;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .video-thumbnail {
-            background-color: #0f172a;
-            width: 100%;
-            height: 160px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #64748b;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        /* Pop-up Overlay Configuration */
+        /* ==========================================================================
+           NEW ADDITION: CONTACT MODAL (POPUP) STYLING
+           ========================================================================== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -331,10 +262,9 @@
             margin-bottom: 30px;
         }
 
-        /* Interactive Discord Invite Button */
         .discord-btn {
             display: inline-block;
-            background-color: #5865F2;
+            background-color: #5865F2; /* Official Discord Blue */
             color: #ffffff;
             text-decoration: none;
             font-weight: 700;
@@ -351,9 +281,9 @@
             box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
         }
 
-        /* Mobile Layout View Responsive Configuration */
+        /* Responsive Configuration */
         @media (max-width: 968px) {
-            .home-grid {
+            .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 50px;
@@ -362,7 +292,6 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                text-align: center;
             }
             .cta-buttons, .stats-row {
                 justify-content: center;
@@ -376,6 +305,60 @@
     <header class="navbar">
         <div class="logo">Itz<span>Lunar</span></div>
         <nav class="nav-links">
-            <a href="#home" class="nav-item active" onclick="switchSection('home', event)">Home</a>
-            <a href="#videos" class="nav-item" onclick="switchSection('videos', event)">Videos</a>
-            <a href="#about" class="nav-item" onclick="switchSection('about', event)">About</a>
+            <a href="#" class="active">Home</a>
+            <a href="#">Videos</a>
+            <a href="#">About</a>
+            <!-- Added Contact link -->
+            <a href="#" onclick="openContactModal(event)">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section Container -->
+    <main class="hero-container">
+        
+        <!-- Left Side: Content Box -->
+        <section class="hero-content">
+            <div class="badge">
+                <span class="dot"></span> OFFICIAL PORTFOLIO
+            </div>
+            
+            <h1>Content Creator & <br><span class="highlight">Gamer</span></h1>
+            
+            <p class="sub-tags">GAMING &bull; MONTAGES &bull; STREAMS</p>
+            
+            <p class="description">
+                Welcome to the official portal. Check out the latest video uploads, stream highlights, and channel stats below.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Watch Videos</a>
+                <a href="#" class="btn btn-secondary">YouTube Channel</a>
+            </div>
+            
+            <!-- Statistics Row -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <h2>10K+</h2>
+                    <p>SUBSCRIBERS</p>
+                </div>
+                <div class="stat-card">
+                    <h2>500+</h2>
+                    <p>VIDEOS</p>
+                </div>
+                <div class="stat-card">
+                    <h2>1M+</h2>
+                    <p>VIEWS</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Side: Glowing 3D Orb Art -->
+        <section class="hero-visual">
+            <div class="glowing-sphere"></div>
+        </section>
+
+    </main>
+
+    <!-- CONTACT POPUP MODAL -->
+    <div id="contactModal" class="modal-overlay" onclick="closeContactModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
